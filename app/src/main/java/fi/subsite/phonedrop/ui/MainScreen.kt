@@ -290,7 +290,7 @@ private fun RunningCard(s: ServerState.Running) {
             SelectionContainer {
                 Text(url, fontFamily = FontFamily.Monospace)
             }
-            TextButton(onClick = { clipboard.setText(AnnotatedString(url)) }) {
+            OutlinedButton(onClick = { clipboard.setText(AnnotatedString(url)) }) {
                 Text(stringResource(R.string.copy_address))
             }
             Spacer(Modifier.height(4.dp))

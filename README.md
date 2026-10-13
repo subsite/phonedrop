@@ -4,6 +4,11 @@ Android app that turns the phone into an SFTP server on the local network, so a 
 browse and copy files with tools it already has: Nautilus/Dolphin, `sftp`, `scp`, `rsync`, `sshfs`.
 No root required.
 
+<p>
+  <img src="screenshots/main-screen.png" alt="Main screen, server stopped" width="270">
+  <img src="screenshots/main-screen-started.png" alt="Main screen, server running" width="270">
+</p>
+
 - Port **2222**, any username.
 - Password login (optional, remembered): a fresh 8-character password is generated each session and
   shown in the app. Turn it off to allow key login only; it can be switched while the server runs.

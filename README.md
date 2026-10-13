@@ -106,6 +106,28 @@ Host phone
 The host key persists across restarts, so `known_hosts` stays valid. It changes only if you
 reinstall the app or clear its data.
 
+### macOS
+
+Finder can't open `sftp://` addresses, but the Terminal tools are built in. The `sftp`, `scp`,
+`rsync`, `ssh-copy-id` and `~/.ssh/config` examples above work unchanged.
+
+For a graphical client, [Cyberduck](https://cyberduck.io) is free. Choose **Open Connection**, select
+**SFTP**, and enter the phone's IP, port `2222`, username `drop` and the password.
+
+### Windows
+
+Windows 10 and 11 include the OpenSSH client, so `sftp` and `scp` work in PowerShell as shown
+above. `ssh-copy-id` isn't included, so add your key in the app with **SSH keys → Add from
+file…** or by pasting the contents of `%USERPROFILE%\.ssh\id_ed25519.pub`.
+
+For a graphical client, use [WinSCP](https://winscp.net) (free). Choose **New Site**, set **File
+protocol** to SFTP, and enter the phone's IP, port `2222`, username `drop` and the password.
+FileZilla works too, but give it the address as `sftp://<phone-ip>` with port `2222`.
+
+File Explorer can't open `sftp://` addresses on its own. To browse the phone there anyway, install
+[WinFsp](https://winfsp.dev) and [SSHFS-Win](https://github.com/winfsp/sshfs-win), then use **Map
+network drive** with `\\sshfs\drop@<phone-ip>!2222`.
+
 ## Notes
 
 - Changing permissions/ownership is ignored (Android storage doesn't support it); copies still succeed.

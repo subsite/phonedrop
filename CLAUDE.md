@@ -12,7 +12,7 @@ Android app (Kotlin + Jetpack Compose) that runs an SFTP server on the phone so 
 - `server/AuthorizedKeys.kt` holds the keys, stored in OpenSSH format in the app's private `filesDir/authorized_keys`.
 - `server/ServerState.kt` is a process-wide `StateFlow` shared by the service and the UI.
 - `data/Settings.kt` (SharedPreferences) stores the shared root (default Download) and the password-login toggle.
-- `ui/` holds the Compose screens. Navigation is a simple `showKeys` boolean in `MainActivity`, with no nav library.
+- `ui/` holds the Compose screens. Navigation is a simple `showKeys` boolean in `MainActivity`, with no nav library. `ui/Theme.kt` has a fixed teal Material 3 scheme (light/dark) matching the icon; dynamic colour is intentionally not used.
 
 ## Behaviour to preserve
 

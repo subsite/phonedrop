@@ -27,6 +27,8 @@ Android app (Kotlin + Jetpack Compose) that runs an SFTP server on the phone so 
 
 - `minSdk 26` (MINA needs `java.nio.file`). Watch for newer JDK APIs that Android lacks, e.g. `InputStream.readNBytes` needs API 33. Run lint.
 - Only `material-icons-core` is a dependency. Add other icons as vector drawables in `res/drawable/`; don't pull in icons-extended.
+- App icon (teal layered folder, download arrow, yellow Wi-Fi badge) is an adaptive icon: `ic_launcher_background` (gradient), `ic_launcher_foreground` (gradients + translucent offset shapes as shadows, since VectorDrawable has no blur) and `ic_launcher_monochrome`. Gradients use `aapt:attr`.
+- `ic_launcher_monochrome` and `ic_notification` draw the same flat silhouette and must be kept in sync by hand. Cut-outs need real transparency: the arrow and Wi-Fi are `evenOdd` holes, the ring around the badge is a `clip-path` (outer rect + reverse-wound circle).
 - MINA on Android needs `user.home` set to `filesDir` and the BC provider disabled; see `prepareMina()`.
 - Version comes from the git tag: CI passes `-PappVersion` and local builds use `git describe` (see the top of `app/build.gradle.kts`). It's shown in `AboutDialog` via `BuildConfig.VERSION_NAME`. Never hard-code it.
 - Release signing uses the `SIGNING_*` env vars (CI secrets). Without them it falls back to the debug key. Never commit keystores.

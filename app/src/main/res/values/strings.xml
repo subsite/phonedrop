@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhoneDrop</string>
+    <string name="channel_name">File server</string>
+    <string name="notif_starting">Starting server…</string>
+    <string name="notif_open_for_password">Tap to see the password</string>
+    <string name="notif_keys_only">Key login only</string>
+    <string name="password_login">Password login</string>
+    <string name="password_login_on">A new random password is generated for each session.</string>
+    <string name="password_login_off">Only your SSH keys can log in. Turn on when you need a password, e.g. for ssh-copy-id.</string>
+    <string name="no_login_possible">No SSH keys added yet, so nobody will be able to log in.</string>
+    <string name="keys_only_running">Password login is off. Only your SSH keys can log in.</string>
+    <string name="stop">Stop</string>
+    <string name="start_server">Start server</string>
+    <string name="stop_server">Stop server</string>
+    <string name="stopped_hint">Start the server, then connect from your computer over SFTP.</string>
+    <string name="storage_needed">PhoneDrop needs storage access (\"All files access\") to share your files.</string>
+    <string name="grant_access">Grant access</string>
+    <string name="password">Password</string>
+    <string name="show_password">Show password</string>
+    <string name="hide_password">Hide password</string>
+    <string name="address">Address</string>
+    <string name="terminal">Terminal</string>
+    <string name="copy_address">Copy address</string>
+    <string name="any_username">Any username works. Registered SSH keys log in without the password.</string>
+    <string name="no_lan_ip">No Wi-Fi address found. Connect to Wi-Fi or enable the hotspot.</string>
+    <string name="shared_folder">Shared folder</string>
+    <string name="change">Change</string>
+    <string name="reset_to_download">Reset to Download</string>
+    <string name="stop_to_change">Stop the server to change the folder.</string>
+    <string name="choose_folder">Shared folder</string>
+    <string name="use_this_folder">Use this folder</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_subfolders">No subfolders</string>
+    <string name="error_root_missing">Shared folder not found: %1$s</string>
+    <string name="error_port_in_use">Port %1$d is already in use.</string>
+    <string name="ssh_keys">SSH keys</string>
+    <plurals name="keys_configured">
+        <item quantity="one">%d key configured</item>
+        <item quantity="other">%d keys configured</item>
+    </plurals>
+    <string name="back">Back</string>
+    <string name="keys_hint">Keys log in without a password. Easiest: turn on password login, start the server and run ssh-copy-id -p 2222 drop@&lt;phone-ip&gt; on your computer. Or copy your .pub file to the phone and add it from file, or paste the key here.</string>
+    <string name="add_key">Add key</string>
+    <string name="add_key_from_file">Add from file…</string>
+    <string name="key_already_added">That key is already added.</string>
+    <string name="key_file_unreadable">Could not read that file.</string>
+    <string name="no_keys">No keys added yet.</string>
+    <string name="delete">Delete</string>
+</resources>

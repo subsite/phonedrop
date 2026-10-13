@@ -25,7 +25,7 @@ From a terminal (uses Android Studio's SDK and bundled JDK):
 adb install -r app/build/outputs/apk/release/app-release.apk
 ```
 
-Release builds are signed with the debug key, which is fine for sideloading. You can also copy the
+Local builds are signed with the debug key and versioned from `git describe`. You can also copy the
 APK to the phone and open it to install, after allowing installs from that source.
 
 ### Emulator
@@ -37,6 +37,33 @@ the port and connect to localhost instead (mDNS discovery won't work here):
 adb forward tcp:2222 tcp:2222
 sftp -P 2222 drop@localhost
 ```
+
+## Releasing
+
+Pushing a version tag makes GitHub Actions run the tests, build a signed APK and publish it as a
+GitHub Release (`.github/workflows/release.yml`):
+
+```sh
+git tag v1.0.0 && git push origin v1.0.0
+```
+
+Tags must be `vMAJOR.MINOR.PATCH`. The version is shown under **About** in the app; versionCode is
+`MAJOR*10000 + MINOR*100 + PATCH`, so every release must be higher than the last.
+
+One-time setup: create a release key (keep it and its passwords backed up; without it, future
+releases can't update installed copies):
+
+```sh
+keytool -genkeypair -keystore ~/keys/phonedrop-release.jks -alias phonedrop \
+  -keyalg RSA -keysize 4096 -validity 10000 -dname "CN=Fredrik Welander, O=SubSite"
+```
+
+Then add these repository secrets (Settings → Secrets and variables → Actions):
+`SIGNING_KEYSTORE_BASE64` (output of `base64 -w0 ~/keys/phonedrop-release.jks`),
+`SIGNING_KEYSTORE_PASSWORD`, `SIGNING_KEY_ALIAS` (`phonedrop`) and `SIGNING_KEY_PASSWORD`.
+
+Release APKs and Android Studio builds have different signatures, so switching between them on one
+device means uninstalling first.
 
 ## Use
 

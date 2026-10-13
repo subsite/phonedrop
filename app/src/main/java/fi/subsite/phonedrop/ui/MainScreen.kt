@@ -65,6 +65,7 @@ fun MainScreen(onOpenKeys: () -> Unit) {
     var hasStorage by remember { mutableStateOf(StorageAccess.isGranted(context)) }
     var root by remember { mutableStateOf(settings.rootPath) }
     var picking by remember { mutableStateOf(false) }
+    var showAbout by remember { mutableStateOf(false) }
     var passwordLogin by remember { mutableStateOf(settings.passwordLogin) }
     var keyCount by remember { mutableStateOf(0) }
 
@@ -90,6 +91,8 @@ fun MainScreen(onOpenKeys: () -> Unit) {
     }
 
     val running = state is ServerState.Running || state is ServerState.Starting
+
+    if (showAbout) AboutDialog(onDismiss = { showAbout = false })
 
     if (picking) {
         FolderPickerDialog(
@@ -234,6 +237,11 @@ fun MainScreen(onOpenKeys: () -> Unit) {
                     }
                 }
             }
+
+            TextButton(
+                onClick = { showAbout = true },
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            ) { Text(stringResource(R.string.about)) }
         }
     }
 }

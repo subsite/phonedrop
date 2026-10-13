@@ -47,4 +47,11 @@
     <string name="key_file_unreadable">Could not read that file.</string>
     <string name="no_keys">No keys added yet.</string>
     <string name="delete">Delete</string>
+    <string name="about">About</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_copyright">© 2026 Fredrik Welander, SubSite</string>
+    <string name="about_license">Free software under the GNU General Public License, version 3 or later. It comes with ABSOLUTELY NO WARRANTY.</string>
+    <string name="about_third_party">Uses Apache MINA SSHD (Apache License 2.0).</string>
+    <string name="about_view_license">View license</string>
+    <string name="close">Close</string>
 </resources>
